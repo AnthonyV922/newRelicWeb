@@ -1,0 +1,7 @@
+<div>
+  <mat-form-field appearance="outline">
+    <mat-label>{{label ? label : ''}}</mat-label>
+    <input matInput type="text" (keyup)="searchData($event.target.value)" [(ngModel)]="searchValue" id="myInput"
+      [value]="searchValue" autocomplete="off" type="search">
+  </mat-form-field>
+</div>

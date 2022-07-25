@@ -1,0 +1,11 @@
+<div>
+  <mat-form-field appearance="outline" [floatLabel]="'always'">
+    <mat-label floatLabel="always">{{label ? label : ''}}</mat-label>
+    <mat-select #filterDropdown [(value)]="selectedValue" name="companies" disableOptionCentering
+      panelClass="myPanelClass">
+      <mat-option #matOption *ngFor="let item of data" [value]="item.id" (click)="selectData(item);">
+        {{item.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

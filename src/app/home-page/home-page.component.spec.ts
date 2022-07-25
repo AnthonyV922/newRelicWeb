@@ -1,20 +1,20 @@
 // import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-// import { ToolbarComponent } from './toolbar.component';
+// import { HomePageComponent } from './home-page.component';
 
-// describe('ToolbarComponent', () => {
-//   let component: ToolbarComponent;
-//   let fixture: ComponentFixture<ToolbarComponent>;
+// describe('HomePageComponent', () => {
+//   let component: HomePageComponent;
+//   let fixture: ComponentFixture<HomePageComponent>;
 
 //   beforeEach(async(() => {
 //     TestBed.configureTestingModule({
-//       declarations: [ToolbarComponent]
+//       declarations: [ HomePageComponent ]
 //     })
-//       .compileComponents();
+//     .compileComponents();
 //   }));
 
 //   beforeEach(() => {
-//     fixture = TestBed.createComponent(ToolbarComponent);
+//     fixture = TestBed.createComponent(HomePageComponent);
 //     component = fixture.componentInstance;
 //     fixture.detectChanges();
 //   });

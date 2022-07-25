@@ -1,20 +1,20 @@
 // import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-// import { ToolbarComponent } from './toolbar.component';
+// import { SearchComponent } from './search.component';
 
-// describe('ToolbarComponent', () => {
-//   let component: ToolbarComponent;
-//   let fixture: ComponentFixture<ToolbarComponent>;
+// describe('SearchComponent', () => {
+//   let component: SearchComponent;
+//   let fixture: ComponentFixture<SearchComponent>;
 
 //   beforeEach(async(() => {
 //     TestBed.configureTestingModule({
-//       declarations: [ToolbarComponent]
+//       declarations: [SearchComponent]
 //     })
 //       .compileComponents();
 //   }));
 
 //   beforeEach(() => {
-//     fixture = TestBed.createComponent(ToolbarComponent);
+//     fixture = TestBed.createComponent(SearchComponent);
 //     component = fixture.componentInstance;
 //     fixture.detectChanges();
 //   });

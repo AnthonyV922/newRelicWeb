@@ -1,0 +1,22 @@
+table {
+  width: 100%;
+}
+
+.table-container {
+  margin: 15px;
+}
+
+
+mat-table {
+  height: 498px !important;
+  display: block;
+  overflow: auto !important;
+}
+
+.hide {
+  display: none;
+}
+
+mat-footer-cell {
+  justify-content: center;
+}
