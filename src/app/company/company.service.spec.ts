@@ -1,83 +1,71 @@
-import { TestBed, fakeAsync, tick } from "@angular/core/testing";
-import { CompanyService } from "./company.service";
-import {ICompany} from './company'
-import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http'
-import { doesNotThrow } from "assert";
-import { defer } from "rxjs";
-describe('Company Sevice', () => {
-    let companyService: CompanyService;
-    let http: HttpClient;
-    let httpSpy: { get: jasmine.Spy}
-    let httpController: HttpTestingController;
-    beforeEach(() => {
-        httpSpy = jasmine.createSpyObj('HttpClient', ['get'])
-        TestBed.configureTestingModule({
-            imports: [HttpClientTestingModule],
-            providers: [CompanyService,
-            {provide: HttpClient, useValue: httpSpy}]
-        })
-        companyService = TestBed.get(CompanyService)
-        http = TestBed.get(HttpClient);
-        httpController = TestBed.get(HttpTestingController)
-    })
+// import { TestBed, fakeAsync, tick } from "@angular/core/testing";
+// import { CompanyService } from "./company.service";
+// import {ICompany} from './company'
+// import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
+// import {HttpClient, HttpErrorResponse} from '@angular/common/http'
+// import { doesNotThrow } from "assert";
+// import { defer, of } from "rxjs";
+// describe('Company Sevice', () => {
+//     let companyService: CompanyService;
+//     let http: HttpClient;
+//     let httpSpy: jasmine.SpyObj<HttpClient>
+//     let httpController: HttpTestingController;
+//     let companySpy: jasmine.SpyObj<CompanyService>
+//     beforeEach(() => {
+//        let httpSpyObj = jasmine.createSpyObj('HttpClient', ['get'])
+//         TestBed.configureTestingModule({
+//             imports: [HttpClientTestingModule],
+//             providers: [CompanyService,
+//             {provide: HttpClient, useValue: httpSpy}]
+//         })
+//         companyService = TestBed.get(CompanyService)
+//         httpSpy = TestBed.get(httpSpy) as jasmine.SpyObj<HttpClient>
+//         http = TestBed.get(HttpClient);
+//         httpController = TestBed.get(HttpTestingController)
+//     })
 
-    afterEach(() => {
-        httpController.verify();
-    })
+//     afterEach(() => {
+//         httpController.verify();
+//     })
 
-    it('service created', () =>  {
-        expect(companyService).toBeDefined();
-    })
+//     it('service created', () =>  {
+//         expect(companyService).toBeDefined();
+//     })
 
 
-    it('getCompanies should return expected data', fakeAsync(() => {
-        const testData: ICompany[] = [{id: 1, name: 'Test1'}];
-        const query = {};
-        // httpSpy.get.and.nextWith(IComany)
-        // httpSpy.get.and.returnValue(defer (d) => {
-        // })
-        companyService.getCompanies(query).subscribe((data) => {
-            expect(data).toEqual(testData);
-        })
-        tick()
-        const req = httpController.expectOne('http://localhost:8000/companies');
-        expect(req.request.method).toEqual('GET');
-        req.flush(testData)
-    }))
-
-    it('getCompanies should use GET for getting data', () => {
-        companyService.getCompanies({}).subscribe()
-        const req = httpController.expectOne('http://localhost:8000/companies');
-        expect(req.request.method).toEqual('GET');
+//     it('getCompanies should return expected data', (done: DoneFn) => {
+//         const testData: ICompany[] = [{id: 1, name: 'Test1'}];
+//         const query = {};
+//         httpSpy.get.and.returnValue(of(testData))
         
-    })
+//         companyService.getCompanies({}).subscribe({
+//             next: companies => {
+//                 expect(companies).toEqual(testData);
+//                 done();
+//             },
+//             error: done.fail
+//         })
 
-    it('call getCompanies()', () => {
-        const testData: ICompany[] = [];
-        const errorMsg = 'status 500 error';
-        companyService.getCompanies({}).subscribe((data) => fail('should have failed with 500 error'),
-            (error: HttpErrorResponse) => {
-                expect(error.status).toEqual(500, 'status');
-                expect(error.error).toEqual(errorMsg, 'message')
-            }
-        )
-        const req = httpController.expectOne('http://localhost:8000/companies');
+//         expect(httpSpy.get.calls.count()).toBe(1);
         
-        expect(req.request.method).toEqual('GET')
-        req.flush(errorMsg, {status: 500, statusText: 'Server Error'})
-    })
+//     })
 
-    it('getCompanies should return an empty object on error', () => {
-        const testData: ICompany[] = [];
+//     it('should return an error when the server returns a 404', (done: DoneFn) => {
+//         const errorResponse = new HttpErrorResponse({
+//           error: 'test 404 error',
+//           status: 404, statusText: 'Not Found'
+//         });
+      
+//         httpSpy.get.and.returnValue((errorResponse));
+//         companySpy.getCompanies.and.returnValue(errorResponse)
+//         companySpy.getCompanies({}).subscribe({ next: companies => done.fail('expected an error, not companies'),
+//         error: error  => {
+//           httpSpy.get.and.throwError(error);
+//        //   expect(error.message).toContain('test 404 error');
+//           done();
+//         }})
+//       });
 
-        companyService.getCompanies({}).subscribe((data) => {
-            expect(data).toEqual(testData);
-            
-        })
-        const req = httpController.expectOne('http://localhost:8000/companies');
-        
-        req.flush('error', {status: 500, statusText: 'Broken Service'})
-    })
+ 
     
-})
+// })
