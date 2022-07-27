@@ -13,7 +13,7 @@ export class FilterCompanyComponent implements OnInit {
 
   ngOnInit() {
     const query = {}; 
-    this.__companyService.getCompanies(query).subscribe(result => { console.log(result); this.companies = result });
+    this.__companyService.getCompanies(query).subscribe(result => { this.companies = result });
   }
 
 }

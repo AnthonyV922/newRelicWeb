@@ -14,18 +14,13 @@ export class TableComponent implements OnInit {
   @Input()
   set tableData(data: ICustomer[]) {
     this.dataSourceArray = data;
-    console.log(data)
   }
   @ViewChild(MatTable) table: MatTable<ICustomer>;
 
   constructor() {
-    console.log('issuee')
-    console.log()
-    //this.dataSourceArray.push({first_name: 'bill', last_name: 'hhh', id: 1, companyid: 2, company_name: 'boook'})
   }
 
   ngOnInit() {
-    console.log('check')
   }
 
 }
