@@ -8,6 +8,9 @@ https://user-images.githubusercontent.com/18384384/181517811-426beff5-17d0-4cbf-
 
 
 # NewRelic
+Application purpose is to get list of customers and display them in a table format. Data can be filtered down through search feature for names and last names or both together. Customers can be filtered down further with company dropdown filter to choose specific company for customers.
+
+Project is made with angular frame work and utilizing typescript. Requires version specified below
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.9.
 
